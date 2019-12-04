@@ -1,0 +1,50 @@
+version: '2'
+services:
+    nginx:
+        # используем последний стабильный образ nginx
+        image: nginx:latest
+        # маршрутизируем порты
+        ports:
+            - "80:80"
+        # монтируем директории, слева директории на основной машине, справа - куда они монтируются в контейнере
+        volumes:
+            - ./:/var/www
+            - ./docker/hosts:/etc/nginx/conf.d
+            - ./docker/logs:/var/log/nginx
+        links:
+            - php-fpm
+    php-fpm:
+        build: ./docker/php
+        volumes:
+            - ./:/var/www
+        links:
+            - mysql
+        environment:
+            - "DB_PORT=3306"
+            - "DB_HOST=mysql"
+    mysql:
+        image: mysql:5.7
+        volumes:
+            - ./docker/mysql:/var/lib/mysql
+        environment:
+            - "MYSQL_ROOT_PASSWORD=secret"
+            - "MYSQL_USER=app"
+            - "MYSQL_PASSWORD=secret"
+            - "MYSQL_DATABASE=app"
+        ports:
+            - "33061:3306"
+    node:
+        image: node:8.6-alpine
+        volumes:
+            - ./:/var/www
+        working_dir: /var/www
+        tty: true
+    phpmyadmin:
+            image: phpmyadmin/phpmyadmin
+            links:
+                - mysql:db
+            environment:
+                PMA_HOST: mysql
+                PMA_PORT: 3306
+            ports:
+                - '8081:8144'
