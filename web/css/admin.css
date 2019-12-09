@@ -1,0 +1,23 @@
+.btn-radio {
+    width: 48%;
+}
+.img-radio {
+    opacity: 0.9;
+    margin: 5px auto;
+}
+.checked {
+    background: #ababab;
+    padding: 5px;
+}
+
+.item-image {
+    width: 146px;
+}
+
+.lg-images {
+    margin-bottom: 20px;
+}
+
+.sm-images {
+    margin: 0 auto;
+}

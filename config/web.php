@@ -8,8 +8,11 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
-        '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@bower'    => '@vendor/bower-asset',
+        '@npm'      => '@vendor/npm-asset',
+	    '@orImage' => 'uploads',
+	    '@lgImage' => 'uploads/720x',
+	    '@smImage'  => 'uploads/146x',
     ],
     'components' => [
         'request' => [
@@ -43,15 +46,20 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+	            '' => 'site/index',
+	            '<_a:login|logout>' => 'auth/<_a>',
             ],
         ],
-        */
     ],
+	'modules' => [
+		'admin' => [
+			'class' => 'app\modules\admin\Module',
+		],
+	],
     'params' => $params,
 ];
 
@@ -61,14 +69,14 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['127.0.0.1', '172.18.0.1'],
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['127.0.0.1', '172.18.0.1'],
     ];
 }
 

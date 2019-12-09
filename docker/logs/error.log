@@ -1,0 +1,304 @@
+2019/12/06 08:55:19 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: yii.test, request: "POST /gii/model HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "yii.test", referrer: "http://yii.test/gii/model"
+2019/12/06 08:55:23 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: yii.test, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "yii.test"
+2019/12/06 08:55:24 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: yii.test, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "yii.test"
+2019/12/06 08:55:25 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: yii.test, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "yii.test"
+2019/12/06 08:55:25 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: yii.test, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "yii.test"
+2019/12/06 19:58:38 [error] 7#7: *232 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/modules/admin/controllers/CarController.php on line 107. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\UnknownMethodException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\UnknownMethodException))
+#4 {main}
+Previous exception:
+yii\base\UnknownMethodException: Calling unknown method: app\models\Car::photos() in /var/www/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /var/www/modules/admin/controllers/CarController.php(108): yii\base\Component->__call('photos', Array)
+#1 [internal function]: app\modules\admin\controllers\CarControlle" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/update?id=31 HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "yii.test", referrer: "http://yii.test/admin/car/view?id=31"
+2019/12/07 13:37:57 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:38:01 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:38:52 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:38:53 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:39:15 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:39:16 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:39:32 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:39:33 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:39:33 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:39:34 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/07 13:39:38 [error] 6#6: *58 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test"
+2019/12/07 13:40:38 [error] 6#6: *73 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test"
+2019/12/07 13:41:03 [error] 6#6: *73 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test"
+2019/12/07 13:41:12 [error] 6#6: *73 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test"
+2019/12/07 13:41:12 [error] 6#6: *73 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test"
+2019/12/07 14:37:39 [error] 6#6: *170 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "POST /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/create"
+2019/12/07 14:39:56 [error] 6#6: *173 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\base\InvalidConfigException: Unknown component ID: request in /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php:139
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('request', true)
+#1 /var/www/vendor/yiisoft/yii2/web/Application.php(160): yii\base\Module->get('request')
+#2 /var/www/vendor/yiisoft/yii2/base/Component.php(139): yii\web\Application->getRequest()
+#3 /var/www/vendor/yiisoft/yii2/di/ServiceLocator.php(77): yii\base\Component->__get('request')
+#4 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(502): yii\di\ServiceLocator->__get('request')
+#5 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(115): yii\web\ErrorHandler->shouldRenderSimpleHtml()
+#6 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#7 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "POST /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/create"
+2019/12/07 14:44:48 [error] 6#6: *179 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/models/Photo.php on line 119. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\InvalidArgumentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidArgumentException))
+#4 {main}
+Previous exception:
+yii\base\InvalidArgumentException: Invalid path alias: @web@orImage in /var/www/vendor/yiisoft/yii2/BaseYii.php:154
+Stack trace:
+#0 /var/www/models/Photo.php(70): yii\BaseYii::getAlias('@web@orImage')
+#1 /var/www/models/Photo.php(120): app\models\Photo::getFolder()
+#2 /var/www/models/Photo.php(54): app\models\Photo->saveImage(58)
+#3 /var/www/m" while reading upstream, client: 172.18.0.1, server: yii.test, request: "POST /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/create"
+2019/12/07 14:45:38 [error] 6#6: *179 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/models/Photo.php on line 119. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(Error))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(Error))
+#4 {main}
+Previous exception:
+Error: Class 'app\models\ii' not found in /var/www/models/Photo.php:70
+Stack trace:
+#0 /var/www/models/Photo.php(120): app\models\Photo::getFolder()
+#1 /var/www/models/Photo.php(54): app\models\Photo->saveImage(60)
+#2 /var/www/modules/admin/controllers/CarController.php(78): app\models\Photo->upload(Array, 60)
+#3 [internal function]: app\modules\admin\controllers\CarController->actionCreate()
+#4 /v" while reading upstream, client: 172.18.0.1, server: yii.test, request: "POST /admin/car/create HTTP/1.1", upstream: "fastcgi://172.18.0.6:9000", host: "yii.test", referrer: "http://yii.test/admin/car/create"
+2019/12/08 11:52:06 [error] 7#7: *192 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/modules/admin/controllers/CarController.php on line 157. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/modules/admin/controllers/CarController.php on line 157. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/ba" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/get-models?brand=3 HTTP/1.1", upstream: "fastcgi://172.18.0.5:9000", host: "yii.test"
+2019/12/08 11:54:03 [error] 7#7: *209 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/modules/admin/controllers/CarController.php on line 158. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/modules/admin/controllers/CarController.php on line 158. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/ba" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/get-models?brand=3 HTTP/1.1", upstream: "fastcgi://172.18.0.5:9000", host: "yii.test"
+2019/12/08 13:57:24 [error] 7#7: *453 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/modules/admin/controllers/CarController.php on line 109. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: Invalid argument supplied for foreach() in /var/www/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php:578
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php(578)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/update?id=1 HTTP/1.1", upstream: "fastcgi://172.18.0.5:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/08 13:57:24 [error] 7#7: *453 FastCGI sent in stderr: ": yii\base\ErrorHandler->handleError(2, 'Invalid argumen...', '/var/www/vendor...', 578, Array)
+#1 /var/www/modules/admin/views/car/" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/update?id=1 HTTP/1.1", upstream: "fastcgi://172.18.0.5:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index"
+2019/12/08 13:57:40 [error] 7#7: *453 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/modules/admin/controllers/CarController.php on line 109. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: Invalid argument supplied for foreach() in /var/www/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php:578
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php(578)" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/update?id=69 HTTP/1.1", upstream: "fastcgi://172.18.0.5:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index?page=3"
+2019/12/08 13:57:40 [error] 7#7: *453 FastCGI sent in stderr: ": yii\base\ErrorHandler->handleError(2, 'Invalid argumen...', '/var/www/vendor...', 578, Array)
+#1 /var/www/modules/admin/views/car/" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/update?id=69 HTTP/1.1", upstream: "fastcgi://172.18.0.5:9000", host: "yii.test", referrer: "http://yii.test/admin/car/index?page=3"
+2019/12/08 20:19:29 [error] 7#7: *681 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/modules/admin/controllers/CarController.php on line 110. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(Error))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(Error))
+#4 {main}
+Previous exception:
+Error: Call to a member function count() on array in /var/www/modules/admin/controllers/CarController.php:111
+Stack trace:
+#0 [internal function]: app\modules\admin\controllers\CarController->actionUpdate('70')
+#1 /var/www/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /var/www/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\In" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/update?id=70 HTTP/1.1", upstream: "fastcgi://172.18.0.5:9000", host: "yii.test", referrer: "http://yii.test/admin/car/view?id=70"
