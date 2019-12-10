@@ -77,6 +77,8 @@ if (YII_ENV_DEV) {
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         'allowedIPs' => ['127.0.0.1', '172.18.0.1'],
+	    'newFileMode'=>0666,
+	    'newDirMode'=>0777,
     ];
 }
 

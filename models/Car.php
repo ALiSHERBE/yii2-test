@@ -5,6 +5,7 @@ namespace app\models;
 use yii\behaviors\TimestampBehavior;
 use yii\data\Pagination;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%web_cars}}".
@@ -32,17 +33,22 @@ class Car extends \yii\db\ActiveRecord
 
 	public function getPhotos()
 	{
-		return $this->hasMany(Photo::className, ['car_id' => 'id']);
+		return $this->hasMany(Photo::className(), ['car_id' => 'id']);
 	}
 
 	public function getBrand()
 	{
-		return $this->hasOne(Brand::className, ['id' => 'brand_id']);
+		return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
 	}
 
 	public function getModel()
 	{
-		return $this->hasOne(Brand::className, ['id' => 'model_id']);
+		return $this->hasOne(Brand::className(), ['id' => 'model_id']);
+	}
+
+	public function getOptions()
+	{
+		return $this->hasMany(Option::className(), ['id' => 'option_id'])->viaTable('web_car_option', ['car_id' => 'id']);
 	}
 
 	public function behaviors()
@@ -62,14 +68,6 @@ class Car extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-    	/*
-        return [
-            [['created_at', 'updated_at'], 'safe'],
-            [['price', 'phone', 'main_photo_id', 'model_id', 'brand_id', 'user_id'], 'required'],
-            [['main_photo_id', 'model_id', 'brand_id', 'user_id'], 'integer'],
-            [['price', 'phone', 'mileage'], 'string', 'max' => 255],
-        ];
-    	*/
 
 	    return [
 		    [['price', 'phone', 'brand_id', 'model_id'], 'required'],
@@ -174,5 +172,28 @@ class Car extends \yii\db\ActiveRecord
 		}
 
 		return $array;
+	}
+
+	public function getSelectedOption()
+	{
+		$selectedOptions = $this->getOptions()->select('id')->asArray()->all();
+		return ArrayHelper::getColumn($selectedOptions, 'id');
+	}
+
+	public function saveOptions($selectOptions)
+	{
+		if (is_array($selectOptions)){
+			$this->clearCurrentOptions();
+
+			foreach($selectOptions as $option_id) {
+				$option = Option::findOne($option_id);
+				$this->link('options', $option);
+			}
+		}
+	}
+
+	public function clearCurrentOptions()
+	{
+		CarOption::deleteAll(['car_id' => $this->id]);
 	}
 }

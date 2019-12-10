@@ -2,18 +2,16 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\Car;
 use Yii;
-use app\models\Photo;
-use app\models\PhotoSearch;
+use app\models\Option;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PhotoController implements the CRUD actions for Photo model.
+ * OptionController implements the CRUD actions for Option model.
  */
-class PhotoController extends Controller
+class OptionController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,22 +29,21 @@ class PhotoController extends Controller
     }
 
     /**
-     * Lists all Photo models.
+     * Lists all Option models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PhotoSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+	    $options = Option::getAll(5);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+	    return $this->render('index', [
+		    'options'       =>$options['options'],
+		    'pagination'    =>$options['pagination'],
+	    ]);
     }
 
     /**
-     * Displays a single Photo model.
+     * Displays a single Option model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,13 +56,13 @@ class PhotoController extends Controller
     }
 
     /**
-     * Creates a new Photo model.
+     * Creates a new Option model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Photo();
+        $model = new Option();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -77,7 +74,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * Updates an existing Photo model.
+     * Updates an existing Option model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,8 +93,8 @@ class PhotoController extends Controller
         ]);
     }
 
-	/**
-     * Deletes an existing Photo model.
+    /**
+     * Deletes an existing Option model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -105,39 +102,30 @@ class PhotoController extends Controller
      */
     public function actionDelete($id)
     {
+	    $exist = Option::find()->where(['parent_id' => $id])->one();
+
+	    if ($exist != null){
+		    Yii::$app->session->setFlash('error', "У текущего объекта имеется дочерние сущьности, для начала удалите их");
+		    return $this->redirect(['index']);
+	    }
+
         $model = $this->findModel($id);
-	    $model->deleteCurrentImages([$model]);
+	    $model->clearCurrentOptions();
 	    $model->delete();
 
         return $this->redirect(['index']);
     }
 
-	public function actionDeletePhoto($id, $car)
-	{
-		$count = count(Car::findOne($car)->photos);
-
-		if ($count == 1){
-			Yii::$app->session->setFlash('error', "Нельзя удалить последнее изображение");
-			return $this->redirect(['car/update', 'id' => $car]);
-		}
-
-		$model = $this->findModel($id);
-		$model->deleteCurrentImage($model);
-		$model->delete();
-
-		return $this->redirect(['car/update', 'id' => $car]);
-	}
-
     /**
-     * Finds the Photo model based on its primary key value.
+     * Finds the Option model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Photo the loaded model
+     * @return Option the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Photo::findOne($id)) !== null) {
+        if (($model = Option::findOne($id)) !== null) {
             return $model;
         }
 

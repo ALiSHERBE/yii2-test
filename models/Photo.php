@@ -17,14 +17,6 @@ class Photo extends \yii\db\ActiveRecord
 {
 	public $image;
 
-	public function getAssociatedArray()
-	{
-		if($this->_associatedArray === null){
-			$this->_associatedArray = $this->getAssociatedProducts()->select('id')->column();
-		}
-		return $this->_associatedArray;
-	}
-
     /**
      * {@inheritdoc}
      */
@@ -68,7 +60,8 @@ class Photo extends \yii\db\ActiveRecord
 		} else {
 			// maxFiles поставить 2 то работает, но это не совпадает по логике
 			// можно решение?)
-			Yii::$app->session->setFlash('success', "Странное поведение Yii2, попробуйте удалить еще 1 файл и сможете загрузить 2 шт.");
+			Yii::$app->session->setFlash('error', "Странное поведение Yii2, попробуйте удалить еще 1 файл и сможете загрузить 2 шт.");
+			return false;
 		}
 	}
 
@@ -140,7 +133,7 @@ class Photo extends \yii\db\ActiveRecord
 	{
 		$arrayFileNames = [];
 
-		foreach ($this->file as $key => $file) {
+		foreach($this->file as $key => $file) {
 			$fileName = $this->generateFileName($key);
 			$arrayFileNames[] = ['file' => $fileName, 'car_id' => $carId];
 			$file->saveAs(self::getFolder() . $fileName);

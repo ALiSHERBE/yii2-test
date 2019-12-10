@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Brand;
+use app\models\Option;
 use app\models\Photo;
 use Yii;
 use app\models\Car;
@@ -41,8 +42,8 @@ class CarController extends Controller
         $cars = Car::getAll(5);
 
         return $this->render('index', [
-	        'cars'          =>$cars['cars'],
-	        'pagination'    =>$cars['pagination'],
+	        'cars'          => $cars['cars'],
+	        'pagination'    => $cars['pagination'],
         ]);
     }
 
@@ -68,11 +69,14 @@ class CarController extends Controller
     {
         $model = new Car();
         $photo = new Photo();
+        $options = Option::tree();
 	    $photo->scenario = 'add';
 	    $brands = Brand::findOne(['id' => '1'])->children(1)->all();
 	    $transaction = Yii::$app->db->beginTransaction();
 
 	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+	    	$selectOptions = Yii::$app->request->post('options');
+		    $model->saveOptions($selectOptions);
 	        $photo->file = UploadedFile::getInstances($photo, 'file');
 
 	        try  {
@@ -92,6 +96,7 @@ class CarController extends Controller
             'model' => $model,
             'photo' => $photo,
             'brands' => $brands,
+            'options' => $options,
         ]);
     }
 
@@ -107,6 +112,8 @@ class CarController extends Controller
         $model = $this->findModel($id);
 	    $photos = Photo::find()->where(['car_id' => $id])->all();
 	    $countPhotos = count($photos);
+	    $options = Option::tree();
+	    $selectedOptions = $model->getSelectedOption();
 
 	    $photo = new Photo();
 	    $photo->scenario = "".$countPhotos;
@@ -115,6 +122,10 @@ class CarController extends Controller
 	    $brands = Brand::findOne(['id' => '1'])->children(1)->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+	        $selectOptions = Yii::$app->request->post('options');
+	        $model->saveOptions($selectOptions);
+
 	        $photo->file = UploadedFile::getInstances($photo, 'file');
 
 	        try  {
@@ -131,11 +142,13 @@ class CarController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
-	        'photos' => $photos,
-	        'photo' => $photo,
-	        'brands' => $brands,
-	        'countPhotos' => $countPhotos,
+            'model'             => $model,
+	        'photos'            => $photos,
+	        'photo'             => $photo,
+	        'brands'            => $brands,
+	        'countPhotos'       => $countPhotos,
+	        'options'           => $options,
+	        'selectedOptions'   => $selectedOptions,
         ]);
     }
 
@@ -163,6 +176,7 @@ class CarController extends Controller
 	    foreach ($model->photos as $photoModel){
 		    $photoModel->delete();
 	    }
+	    $model->clearCurrentOptions();
 	    $model->delete();
 
 	    return $this->redirect(['index']);

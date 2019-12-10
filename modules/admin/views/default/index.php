@@ -1,12 +1,8 @@
-<div class="admin-default-index">
-    <h1><?= $this->context->action->uniqueId ?></h1>
-    <p>
-        This is the view content for action "<?= $this->context->action->id ?>".
-        The action belongs to the controller "<?= get_class($this->context) ?>"
-        in the "<?= $this->context->module->id ?>" module.
-    </p>
-    <p>
-        You may customize this page by editing the following file:<br>
-        <code><?= __FILE__ ?></code>
-    </p>
+<div class="container">
+    <h2>List Group With Badges</h2>
+    <ul class="list-group">
+        <li class="list-group-item">New <span class="badge">12</span></li>
+        <li class="list-group-item">Deleted <span class="badge">5</span></li>
+        <li class="list-group-item">Warnings <span class="badge">3</span></li>
+    </ul>
 </div>

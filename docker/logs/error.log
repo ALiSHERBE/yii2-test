@@ -302,3 +302,16 @@ Stack trace:
 #0 [internal function]: app\modules\admin\controllers\CarController->actionUpdate('70')
 #1 /var/www/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
 #2 /var/www/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\In" while reading upstream, client: 172.18.0.1, server: yii.test, request: "GET /admin/car/update?id=70 HTTP/1.1", upstream: "fastcgi://172.18.0.5:9000", host: "yii.test", referrer: "http://yii.test/admin/car/view?id=70"
+2019/12/09 23:32:09 [error] 7#7: *1327 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/modules/admin/controllers/OptionController.php on line 107. in /var/www/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /var/www/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /var/www/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /var/www/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: print_r() expects at least 1 parameter, 0 given in /var/www/modules/admin/controllers/OptionController.php:108
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'print_r() expec...', '/var/www/module...', 108, Array)
+#1 /var/www/modules/admin/controllers/OptionController.php(108): pri" while reading upstream, client: 172.18.0.1, server: yii.test, request: "POST /admin/option/delete?id=7 HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "yii.test", referrer: "http://yii.test/admin/option/index"
