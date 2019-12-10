@@ -74,7 +74,8 @@ class ModelController extends Controller
 	        $parent = Brand::findOne(['id' => $post['brand']]);
 	        $model->appendTo($parent);
 
-            return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(['view', 'id' => $model->id]);
+	        return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -93,13 +94,26 @@ class ModelController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+	    $model->brand = $model->parent->id; // for selected
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+	    $parent = Brand::findOne(1);
+
+	    $children = $parent->children(1)->all();
+
+	    $post = Yii::$app->request->post('Brand');
+
+	    if (!empty($post)) {
+		    $model->title     = $post['title'];
+		    $parent = Brand::findOne(['id' => $post['brand']]);
+		    $model->appendTo($parent);
+
+		    //return $this->redirect(['view', 'id' => $model->id]);
+		    return $this->redirect(['index']);
+	    }
 
         return $this->render('update', [
             'model' => $model,
+	        'children' => $children,
         ]);
     }
 

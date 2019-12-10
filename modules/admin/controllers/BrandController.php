@@ -70,10 +70,15 @@ class BrandController extends Controller
 
         if (!empty($post)) {
 	        $parent = Brand::findOne(1);
+	        if ($parent == null){
+		        $parent = new Brand(['title' => 'Марки']);
+		        $parent->makeRoot();
+	        }
 	        $model->title = $post['title'];
 	        $model->appendTo($parent);
 
-            return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(['view', 'id' => $model->id]);
+	        return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -93,7 +98,8 @@ class BrandController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(['view', 'id' => $model->id]);
+	        return $this->redirect(['index']);
         }
 
         return $this->render('update', [
@@ -110,7 +116,7 @@ class BrandController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id)->deleteWithChildren();
 
         return $this->redirect(['index']);
     }

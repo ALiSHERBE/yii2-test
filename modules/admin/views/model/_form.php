@@ -8,6 +8,7 @@ use \yii\helpers\ArrayHelper;
 /* @var $model app\models\Brand */
 /* @var $children app\models\Brand */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="brand-form">

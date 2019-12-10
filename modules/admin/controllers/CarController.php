@@ -89,7 +89,8 @@ class CarController extends Controller
 		        $transaction->rollBack();
 	        }
 
-		    return $this->redirect(['view', 'id' => $model->id]);
+		    //return $this->redirect(['view', 'id' => $model->id]);
+		    return $this->redirect(['index']);
         }
         
         return $this->render('create', [
@@ -138,7 +139,8 @@ class CarController extends Controller
 		        $transaction->rollBack();
 	        }
 
-            return $this->redirect(['update', 'id' => $model->id]);
+            //return $this->redirect(['update', 'id' => $model->id]);
+	        return $this->redirect(['index']);
         }
 
         return $this->render('update', [
@@ -158,7 +160,9 @@ class CarController extends Controller
 		$model->main_photo_id = $image;
 		$model->save();
 
-		return $this->redirect(['update', 'id' => $id]);
+		return $this->redirect(['view', 'id' => $model->id]);
+
+		//return $this->redirect(['update', 'id' => $id]);
 	}
 
     /**

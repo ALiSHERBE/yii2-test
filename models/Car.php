@@ -165,9 +165,7 @@ class Car extends \yii\db\ActiveRecord
 				if ($key == 0){
 					continue;
 				}
-				if ($this->main_photo_id == $image->id){
-					$array[] = '/'. $image->smFolder . $image->file;
-				}
+				$array[] = '/'. $image->smFolder . $image->file;
 			}
 		}
 
